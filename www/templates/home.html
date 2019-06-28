@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shiv 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="page-header">
+        <h1><a href="/">Home</a>
+            {% if username %}
+            <small>Welcome, {{ username }} !</small>
+            {% endif %}
+        </h1>
+    </div>
+
+    {% if message %}
+    <h3><p style="color:red">{{ message }}</p></h3>
+    {% endif %}
+
+    {% if username %}
+    <h3><p style="color:green">login success</p></h3>
+    {% endif %}
+
+    {% if register_flag %}
+    <h3><p style="color:green">register success</p></h3>
+    {% endif %}
+
+    <h3>session</h3>
+    <div class="btn-group btn-group-lg">
+        <button type="button" class="btn btn-default" onclick="window.location.href = '/login'">login</button>
+        <button type="button" class="btn btn-default" onclick="window.location.href = '/register'">register</button>
+        <button type="button" class="btn btn-default" onclick="window.location.href = '/logout'">logout</button>
+    </div>
+    <h3>user opt</h3>
+    <div class="btn-group btn-group-lg">
+        <button type="button" class="btn btn-default" onclick="window.location.href = '/insert_user'">insert</button>
+        <button type="button" class="btn btn-default">delete</button>
+        <button type="submit" class="btn btn-default" onclick="window.location.href = '/update_user'">update</button>
+        <button type="button" class="btn btn-default">query</button>
+    </div>
+    <h3>board opt</h3>
+    <div class="btn-group btn-group-lg">
+        <button type="button" class="btn btn-default">insert</button>
+        <button type="button" class="btn btn-default">delete</button>
+        <button type="button" class="btn btn-default">update</button>
+        <button type="button" class="btn btn-default">query</button>
+    </div>
+    <h3>bbs opt</h3>
+    <div class="btn-group btn-group-lg">
+        <button type="button" class="btn btn-default">insert</button>
+        <button type="button" class="btn btn-default">delete</button>
+        <button type="button" class="btn btn-default">update</button>
+        <button type="button" class="btn btn-default">query</button>
+    </div>
+</body>
+</html>

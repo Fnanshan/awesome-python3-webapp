@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}首页{% endblock %}
+
+{% block page_content %}
+<table class="table table-bordered">
+    <tr>
+        <th>boardid</th>
+        <th>boardname</th>
+        <th>boardtopics</th>
+        <th>boardmanager</th>
+        <th>boardintroduce</th>
+    </tr>
+    {% for i in result %}
+    <tr>
+        <td>{{ i[0] }}</td>
+        <td>{{ i[1] }}</td>
+        <td>{{ i[2] }}</td>
+        <td>{{ i[3] }}</td>
+        <td>{{ i[4] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

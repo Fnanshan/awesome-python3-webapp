@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>please register in</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shiv 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<form action="/register" method="post" class="form-horizontal" role="form">
+    <legend>Please register in:</legend>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">username</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="username" name="username" placeholder="please input username">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">password</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="pw1" name="password" placeholder="please input password">
+            <p/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">password</label>
+        <div class="col-sm-10">
+<!--            <label class="">check userpass</label>-->
+            <p>
+                <input name="userpass" class="form-control" id="pw2" onkeyup="validate()" placeholder="Password" type="password">
+                <span id="tishi"></span>
+            </p>
+        </div>
+    </div>
+    <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Register In</button>
+        <input type="button" class="btn btn-default" onclick="window.location.href = '/'" value="return">
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+            <p/>
+            {% if message %}
+            <p style="color:red">{{ message }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+<!--    <label class="">username</label>-->
+<!--    <p><input name="username" placeholder="Username" ></p>-->
+<!--    <label class="">userpass</label>-->
+<!--    <p><input name="userpass" id="pw1" placeholder="Password" type="password"></p>-->
+
+</form>
+
+<script>
+    function validate() {
+        var pw1 = document.getElementById("pw1").value;
+        var pw2 = document.getElementById("pw2").value;
+        if(pw1 == pw2) {
+        document.getElementById("tishi").innerHTML="<font color='green'>两次密码相同</font>";
+        document.getElementById("submit").disabled = false;
+        }
+        else {
+        document.getElementById("tishi").innerHTML="<font color='red'>两次密码不相同</font>";
+        document.getElementById("submit").disabled = true;
+        }
+    }
+</script>
+<!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- 包括所有已编译的插件 -->
+<script src="E:\projects\GitProjects\awesome-python3-webapp\bootstrap-3.3.7-dist\js\bootstrap.min.js"></script>
+</script>
+</body>
+</html>

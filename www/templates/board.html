@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>board</title>
+    <style type="text/css">
+		#tab tr td{
+
+			text-align: center;
+		}
+	</style>
+
+</head>
+<body>
+<table id="tab" border="1px solid" bordercolor="lightblue" cellspacing="1" width="800px" >
+    <tr>
+        <th width="150px">boardid</th>
+        <th width="150px">boardname</th>
+        <th width="150px">boardtopics</th>
+        <th width="150px">boardmanager</th>
+        <th width="150px">boardintroduce</th>
+        <th width="" height="">操作</th>
+    </tr>
+<!--    <tr>-->
+<!--        <td>{{ boardid }}</td>-->
+<!--        <td>{{ boardname }}</td>-->
+<!--        <td>{{ boardtopics }}</td>-->
+<!--        <td>{{ boardmanager }}</td>-->
+<!--        <td>{{ boardintroduce }}</td>-->
+<!--        <td>-->
+<!--            <input type="button" name="" id=""  onclick="dele(this)" value="删除" />-->
+<!--            <input type="button" name="" id="" onclick='update(this)'  value="修改" />-->
+<!--        </td>-->
+<!--    </tr>-->
+    {% for i in range(len_result) %}
+    <tr>
+        <td>{{ result[i][0] }}</td>
+        <td>{{ result[i][1] }}</td>
+        <td>{{ result[i][2] }}</td>
+        <td>{{ result[i][3] }}</td>
+        <td>{{ result[i][4] }}</td>
+        <td>
+            <input type="button" name="delete_board" id=""  onclick="dele(this)" value="删除" />
+            <input type="button" name="update_board" id="" onclick='update(this)'  value="修改" />
+        </td>
+    </tr>
+    {% endfor %}
+
+    <tr>
+        <td colspan="6">
+            <input type="button" onclick="addRow()" value="添加信息"/>
+        </td>
+    </tr>
+</table>
+</body>
+<script type="text/javascript">
+		function  addRow(){
+			var tab = document.getElementById("tab");
+			//alert(tab.rows.length)
+			var rownum = tab.rows.length;// 行数
+			var newRow=tab.insertRow(rownum-1);
+
+			var cell_boardid = newRow.insertCell(0);
+			cell_boardid.innerHTML="<input type='number' value='' />";
+			var cell_boardname = newRow.insertCell(1);
+			cell_boardname.innerHTML="<input type='text' value='' size='10' />";
+			var cell_boardtopics = newRow.insertCell(2);
+			cell_boardtopics.innerHTML="<input type='number' value='' size='10' />";
+			var cell_boardmanager = newRow.insertCell(3);
+			cell_boardmanager.innerHTML="<input type='text' value='' size='10' />";
+			var cell_boardintroduce = newRow.insertCell(4);
+			cell_boardintroduce.innerHTML="<input type='text' value='' size='10' />";
+			var action = newRow.insertCell(5);
+			action.innerHTML="<input type='button' name='' id='' onclick='dele(this)' value='删除' /><input type='button' name='' id='' onclick='save(this)' value='保存' />"
+		}
+
+		function save(obj){
+			alert(obj.parentNode.parentNode.innerHTML)
+			var tr = obj.parentNode.parentNode; // 获取的本行的tr
+			alert(tr.cells[1].childNodes[0].value)
+			tr.cells[0].innerHTML = tr.cells[0].childNodes[0].value
+			tr.cells[1].innerHTML = tr.cells[1].childNodes[0].value
+			tr.cells[2].innerHTML = tr.cells[2].childNodes[0].value
+			tr.cells[3].innerHTML = tr.cells[3].childNodes[0].value
+			tr.cells[4].innerHTML = tr.cells[4].childNodes[0].value
+			tr.cells[5].innerHTML = "<input type='button' name='' onclick='dele(this)' id='' value='删除' /><input type='button' name='' id=''  onclick='update(this)' value='修改' />"
+		}
+
+		function dele(obj){
+			var otr = obj.parentNode.parentNode;
+//			var tab = document.getElementById("tab");
+//			tab.deleteRow(otr.rowIndex)
+			var tab =  otr.parentNode; //自己的父节点 就是table
+			tab.removeChild(otr);
+		}
+
+		function update(obj){
+//			alert(obj.parentNode.parentNode.innerHTML)
+			var tr = obj.parentNode.parentNode; // 获取的本行的tr
+		//	alert(tr.cells[0].childNodes[0].value)
+			tr.cells[0].innerHTML = "<input type='number' name='boardid' value='"+tr.cells[0].innerHTML+"' size='10' />";
+			tr.cells[1].innerHTML = "<input type='text' name='boardname' value='"+tr.cells[1].innerHTML+"' size='10' />";
+			tr.cells[2].innerHTML = "<input type='number' name='boardtopics' value='"+tr.cells[2].innerHTML+"' size='10' />";
+			tr.cells[3].innerHTML = "<input type='text' name='boardmanager' value='"+tr.cells[3].innerHTML+"' size='10' />";
+			tr.cells[4].innerHTML = "<input type='text' name='boardintroduce' value='"+tr.cells[4].innerHTML+"' size='10' />";
+
+			tr.cells[5].innerHTML = "<input type='button' name='' onclick='dele(this)' id='' value='删除' /><input type='button' name='' onclick='save(this)' id=''  value='保存' />"
+		}
+	</script>
+</html>
