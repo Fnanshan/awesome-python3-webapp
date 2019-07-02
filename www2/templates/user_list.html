@@ -20,17 +20,6 @@
     <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
     <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
     <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
-
-    <script>
-    $.validator.setDefaults({
-        submitHandler: function() {
-          alert("提交事件!");
-        }
-    });
-    $().ready(function() {
-        $("#commentForm").validate();
-    });
-</script>
 </head>
 <body>
 <div class="page-header">
@@ -38,7 +27,12 @@
         <small></small>
     </h1>
 </div>
-<table class="table table-bordered" id="tab" name="tab">
+<div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-primary"  onclick="insert_user()">insert</button>
+</div>
+<p/>
+
+<table class="table table-striped" id="tab" name="tab">
     <tr>
         <th>id</th>
         <th>username</th>
@@ -70,9 +64,16 @@
             <form action="/user_list_opt" method="post" class="form-horizontal" role="form">
                 <div id="mydiv" class="btn-group" role="group" aria-label="...">
     <!--                <button type="button" class="btn btn-default" onclick="edit_user(this)" name="edit">edit</button>-->
+                    {% if i[0] in range(5) %}
+                    <button type="button" class="btn btn-default" id="edit" value="{{ i[0] }}" onclick="edit_user(this)" disabled="disabled">edit</button>
+                    <button type="button" class="btn btn-default" id="delete" value="{{ i[0] }}" onclick="delete_user(this)" disabled="disabled">delete</button>
+                    <button type="button" class="btn btn-default" disabled="disabled">is_active(no code)</button>
+                    {% else %}
                     <button type="button" class="btn btn-default" id="edit" value="{{ i[0] }}" onclick="edit_user(this)">edit</button>
                     <button type="button" class="btn btn-default" id="delete" value="{{ i[0] }}" onclick="delete_user(this)">delete</button>
                     <button type="button" class="btn btn-default">is_active(no code)</button>
+                    {% endif %}
+
                 </div>
             </form>
         </td>
@@ -118,17 +119,20 @@
   url_for('static', filename='jquery-1.11.3.min.js') }}"></script>
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 
-
-<!--<script>-->
-<!--$(document).ready(function(){-->
-<!--  $("button").click(function(){-->
-<!--    //alert($("button").val());-->
-<!--    alert( {{ result[0][0] }});-->
-<!--  });-->
-<!--});-->
-<!--</script>-->
-
 <script type="text/javascript">
+
+    function insert_user(){
+        var session_id = "{{ session['id'] }}".toString();
+        if( session_id == ""){              //如果不是登录状态，不能进行insert_user操作
+            alert('请先登录');
+            return false;
+        }
+        else{                               //如果是登录状态
+            var user_id = session_id;      //因为是修改自己，所以获取session中的id
+            window.location.href = '/register'
+        }
+    }
+
     function  edit_user(obj){
         var user_id = $(obj).val();
         $.ajax({
@@ -154,6 +158,16 @@
         };
     }
 </script>
+<!--<script>-->
+<!--    $.validator.setDefaults({-->
+<!--        submitHandler: function() {-->
+<!--          alert("提交事件!");-->
+<!--        }-->
+<!--    });-->
+<!--    $().ready(function() {-->
+<!--        $("#commentForm").validate();-->
+<!--    });-->
+<!--</script>-->
 
 <!--jquery ajax()       执行ajax（异步HTTP）请求-->
 

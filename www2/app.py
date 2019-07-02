@@ -1,11 +1,12 @@
 from flask_bootstrap import Bootstrap
 from flask import Flask, request, render_template, url_for, session, escape, redirect, jsonify
-import bbs_system_functions as system
+import www2.bbs_system_functions as system
+import jinja2
 import sqlalchemy_connDB as connDB2
-from opt_functions import is_login
-from sqlalchemy_connDB import query_one
 
 app = Flask(__name__)
+# jinjia2 添加拦截器
+app.jinja_env.filters['zip'] = zip()  # 添加这个方法
 bootstrap = Bootstrap(app)
 # set the secret key.  keep this really secret:
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
@@ -14,6 +15,14 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 @app.route('/', methods=['GET', 'POST'])
 def home():
     ''' 要把模板home.html放到正确的templates目录下，templates和app.py在同级目录下 '''
+    # 加载谁都能看的页面数据
+    # 加载帖子
+    bbs = system.Bbs()
+    # bbs_all_result = bbs.query_all_bbs()
+    bbs_clicking_ranking_result = bbs.clicking_ranking()
+    bbs_latest = bbs.order_by_dateandtime()
+    # 帖子点击排名（clicking ranking）
+
     if 'username' in session:
         # 根据session中的用户名查找其所有信息
         user = system.User()
@@ -21,10 +30,12 @@ def home():
         user.id = session['id']
         # id = user.query_all_by_username()[0][0]
         result = user.query_all_by_username()
+        # print(' home() :', result)
         if result[0][0] in range(5):     # session.username是管理员
-            return render_template('home.html', username=escape(session['username']), user_info=' you is admin')
-        return render_template('home.html', username=escape(session['username']))
-    return render_template('home.html')
+            return render_template('index.html', username=escape(session['username']), bbs_result=bbs_latest, order_by_click=bbs_clicking_ranking_result)
+        return render_template('index.html', username=escape(session['username']), bbs_result=bbs_latest, order_by_click=bbs_clicking_ranking_result)
+
+    return render_template('index.html', bbs_result=bbs_latest, order_by_click=bbs_clicking_ranking_result)
 
 
 @app.route('/login/', methods=['GET', 'POST'])
@@ -52,23 +63,26 @@ def signin():
     return render_template('login.html')
 
 
-@app.route('/register', methods=['GET', 'POST'])
+@app.route('/register/', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
+        print('register post opt')
         username = request.form['username']
         userpass = request.form['userpass']
         flag = system.register(username, userpass)
         if flag:
             session['register_flag'] = 'True'
+            # print(flag)
             # return render_template('login.html', message='register success!')
-            return redirect(url_for('signin'))
+            # return redirect(url_for('signin'))
+            return redirect(url_for('user_list'))
         else:
             return render_template('register.html', message='register error!')
-
+    print('register get opt')
     return render_template('register.html')
 
 
-@app.route('/logout')
+@app.route('/logout/')
 def logout():
     # remove the username from the session if it's there
     session.clear()
@@ -128,12 +142,12 @@ def update_user(user_id):
             user.usersign = request.form['usersign']
             user.redate = request.form['redate']
             user.update()
-            session.pop('username', None)
-            session['username'] = request.form['username']
+            # session.pop('username', None)
+            # session['username'] = request.form['username']
             # 判断session.username是不是admin，如果不是admin则返回login页面
-            result = user.query_all_by_username()[0][0]
-            if result not in range(5):
-                return redirect(url_for('home'))
+            # result = user.query_all_by_username()[0][0]
+            # if result not in range(5):
+            #     return redirect(url_for('home'))
             # 判断session.username是不是admin，如果是admin则返回用户列表
             return redirect(url_for('user_list'))
         print('---/update_user/' + user_id + '---get opt :')
@@ -142,10 +156,10 @@ def update_user(user_id):
             # 根据路由中的user_id查找其所有信息
             user.id = user_id
             result = user.query_all_by_id()
-        else:
-            # 根据session中的用户名查找其所有信息
-            user.username = session['username']
-            result = user.query_all_by_username()
+        # else:
+        #     # 根据session中的用户名查找其所有信息
+        #     user.username = session['username']
+        #     result = user.query_all_by_username()
         print('update_user info :', result)
         # id = user.query_all_by_username()[0][0]
         return render_template('user_detail.html', result=result)
@@ -238,6 +252,16 @@ def getjson():
     return 'get'
 
 
+@app.route('/bbs_list/', methods=['GET', 'POST'])
+def bbs_list():
+        board = system.Board()
+        bbs = system.Bbs()
+        boardid_dict = board.get_board_id_and_name()
+        order_by_click = bbs.clicking_ranking()
+        value = "123456789101112131415"
+        return render_template('articles-list.html', order_by_click=order_by_click, boardid_dict=boardid_dict, value=value)
+
+
 @app.route('/query_board2', methods=['GET', 'POST'])
 def query_board2():
     board = system.Board()
@@ -277,5 +301,4 @@ def test():
 
 if __name__ == '__main__':
     # app.run()
-    # app.run(debug=True)     # debug=True 调试模式：服务器会在代码修改后自动重新载入，并在发生错误时提供一个相当有用的调试器
-    app.run(host='127.0.0.1', port=5555, debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=True)

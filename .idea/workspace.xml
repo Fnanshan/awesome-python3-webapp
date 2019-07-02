@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0958d910-f0e0-497c-a2af-0d3ecfa93a89" name="Default Changelist" comment="new html template">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/bbs_system_functions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/connDB.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/opt_functions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/2019-07-02.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/bootstrap-3.3.7-dist/css/bootstrap-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/bootstrap-3.3.7-dist/css/bootstrap-theme.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/bootstrap-3.3.7-dist/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/bootstrap-3.3.7-dist/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/bootstrap-3.3.7-dist/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/bootstrap-3.3.7-dist/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/bootstrap-3.3.7-dist/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/bootstrap-3.3.7-dist/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/bootstrap-3.3.7-dist/js/npm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/bootstrap-table/bootstrap-table-zh-CN.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/bootstrap-table/bootstrap-table.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/bootstrap-table/bootstrap-table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/blue-skin/blue-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/blue-skin/devine-art.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/blue-skin/facebook.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/blue-skin/flickr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/blue-skin/footer-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/blue-skin/google.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/blue-skin/linked-in.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/blue-skin/rss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/blue-skin/skype.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/blue-skin/stumble.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/blue-skin/twitter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/blue-skin5152.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/bootstrap5152.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/custom5152.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/green-skin/devine-art.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/green-skin/facebook.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/green-skin/faq-minus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/green-skin/faq-plus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/green-skin/flickr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/green-skin/footer-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/green-skin/google.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/green-skin/green-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/green-skin/linked-in.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/green-skin/plus-minus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/green-skin/rss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/green-skin/skype.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/green-skin/stumble.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/green-skin/twitter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/green-skin5152.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/main5152.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/red-skin/devine-art.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/red-skin/facebook.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/red-skin/faq-minus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/red-skin/faq-plus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/red-skin/flickr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/red-skin/footer-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/red-skin/google.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/red-skin/linked-in.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/red-skin/plus-minus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/red-skin/red-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/red-skin/rss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/red-skin/skype.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/red-skin/stumble.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/red-skin/twitter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/red-skin5152.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/css/responsive5152.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/Descr.WD3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/calendar-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/category-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/category-main-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/comment.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/devine-art.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/facebook.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/faq-minus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/faq-plus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/flickr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/footer-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/glyphicons-halflings-white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/glyphicons-halflings.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/google.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/image-large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/li-arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/like-btn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/like.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/linked-in.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/main-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/plus-minus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/question-large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/question.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/quote.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/rss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/scroll-top.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/search-loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/skype.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/standard-large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/standard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/stumble.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/support.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/temp/Descr.WD3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/temp/living-room-770x501.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/temp/man.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/twitter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/video-large.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/images/video.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/jquery-1.11.3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/jquery-1.11.3.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/js/custom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/js/custom5152.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/js/jflickrfeed.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/js/jquery-1.8.3.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/js/jquery.easing.1.3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/js/jquery.easing.1.34e44.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/js/jquery.form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/js/jquery.formd471.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/js/jquery.liveSearch.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/js/jquery.liveSearchd5f7.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/js/jquery.validate.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/js/jquery.validate.minfc6b.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/js/prettyphoto/jquery.prettyPhoto.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/js/prettyphoto/jquery.prettyPhotoaeb9.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/static/js/prettyphoto/prettyPhotoaeb9.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/templates/app01_filters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/templates/articles-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/templates/blue-skin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/templates/contact.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/templates/elements.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/templates/faq.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/templates/full-width.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/templates/green-skin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/templates/home-categories-articles.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/templates/home-categories-description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/templates/index-2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/templates/page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/templates/red-skin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/templates/single.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/templates/user_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/templates/user_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/templates/user_single_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www2/templates/说明.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/www/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/user_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/user_list.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www2/app.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="261" column="32" selection-start-line="261" selection-start-column="32" selection-end-line="261" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www2/templates/articles-list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="155" column="58" lean-forward="true" selection-start-line="155" selection-start-column="58" selection-end-line="155" selection-end-column="58" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www2/bbs_system_functions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
+              <caret line="124" selection-start-line="124" selection-end-line="133" selection-end-column="19" />
+              <folding>
+                <element signature="e#15#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www2/templates/register.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="23" column="39" lean-forward="true" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+              <folding>
+                <element signature="e#754#761#1" expanded="true" />
+                <element signature="n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#2;n#form#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#style#0;n#p#1;n#div#0;n#div#4;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www2/templates/user_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="80" selection-start-line="80" selection-end-line="80" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www2/templates/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www2/templates/user_single_detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www2/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="106">
+              <caret line="136" selection-start-line="136" selection-end-line="144" selection-end-column="84" />
+              <folding>
+                <element signature="n#style#0;n#p#0;n#h3#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#li#8;n#ul#0;n#div#0;n#nav#0;n#div#0;n#header#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#h3#0;n#li#9;n#ul#0;n#div#0;n#nav#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#21713#21718#0" expanded="true" />
+                <element signature="e#24328#24334#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www2/templates/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="69" selection-start-line="69" selection-end-line="79" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>clear</find>
+      <find>style.css</find>
+      <find>index-2</find>
+      <find>contact</find>
+      <find>style</find>
+      <find>api</find>
+      <find>Home</find>
+      <find>vali</find>
+      <find>commentForm</find>
+      <find>Type your</find>
+      <find>Latest Articles</find>
+      <find>Articles List</find>
+      <find>living-room-770x501.jpg</find>
+      <find>jquery.prettyPhotoaeb9.js?ver=3.1.4</find>
+      <find>{{</find>
+      <find>Integrating WordPress with Your Website</find>
+      <find>twitter_update_lis</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/www/templates/user_list.html" />
+        <option value="$PROJECT_DIR$/www/templates/home.html" />
+        <option value="$PROJECT_DIR$/www/templates/login.html" />
+        <option value="$PROJECT_DIR$/www/__init__.py" />
+        <option value="$PROJECT_DIR$/www2/__init__.py" />
+        <option value="$PROJECT_DIR$/www2/templates/user_single_detail.html" />
+        <option value="$PROJECT_DIR$/www2/templates/user_list.html" />
+        <option value="$PROJECT_DIR$/www2/templates/register.html" />
+        <option value="$PROJECT_DIR$/www/templates/test.html" />
+        <option value="$PROJECT_DIR$/www2/templates/index.html" />
+        <option value="$PROJECT_DIR$/www2/bbs_system_functions.py" />
+        <option value="$PROJECT_DIR$/www2/README.md" />
+        <option value="$PROJECT_DIR$/www2/app.py" />
+        <option value="$PROJECT_DIR$/www2/templates/app01_filters.py" />
+        <option value="$PROJECT_DIR$/www2/templates/articles-list.html" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <showMembers ProjectPane="true" />
+      <showExcludedFiles Scope="true" ProjectPane="true" />
+      <autoscrollToSource ProjectPane="false" />
+      <autoscrollFromSource ProjectPane="false" />
+      <foldersAlwaysOnTop value="false" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="awesome-python3-webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="awesome-python3-webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="awesome-python3-webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="awesome-python3-webapp" type="462c0819:PsiDirectoryNode" />
+              <item name=".ipynb_checkpoints" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="awesome-python3-webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="awesome-python3-webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="www2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="awesome-python3-webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="awesome-python3-webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="www2" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/www2/static" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\projects\GitProjects\awesome-python3-webapp\www2\static" />
+      <recent name="E:\projects\GitProjects\awesome-python3-webapp\www2\templates" />
+      <recent name="E:\projects\GitProjects\awesome-python3-webapp\www2" />
+      <recent name="E:\projects\GitProjects\awesome-python3-webapp\www2\teamplates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\projects\GitProjects\awesome-python3-webapp" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.app">
+    <configuration name="__init__ (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="awesome-python3-webapp" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/www2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="E:\projects\GitProjects\awesome-python3-webapp\www2\app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="awesome-python3-webapp" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/www" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/www/__init__.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="awesome-python3-webapp" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/www2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/www2/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="bbs_system_functions" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="awesome-python3-webapp" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/www2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/www2/bbs_system_functions.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.app" />
+        <item itemvalue="Python.bbs_system_functions" />
+        <item itemvalue="Python.__init__ (1)" />
+        <item itemvalue="Python.__init__" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49893844" visible="true" weight="0.2291942" />
+      <window_info id="Structure" order="1" sideWeight="0.50106156" side_tool="true" weight="0.2291942" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32991204" />
+      <window_info anchor="bottom" x="95" y="30" width="1345" height="764" id="Run" maximized="true" order="2" weight="0.30645162" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32991204" />
+      <window_info anchor="bottom" id="Pylint" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32774675" />
+      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.55131966" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="bottom" x="715" y="394" width="685" height="329" id="Terminal" order="11" weight="0.22873901" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="new html template" />
+    <option name="LAST_COMMIT_MESSAGE" value="new html template" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/www2/static/js/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="4" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www2/app.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/runserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1268" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/user_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/user_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="102" column="61" lean-forward="true" selection-start-line="102" selection-start-column="61" selection-end-line="102" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="50" column="23" lean-forward="true" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="278" column="15" lean-forward="true" selection-start-line="278" selection-start-column="15" selection-end-line="278" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www2/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/bbs_system_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="35" column="15" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="35" selection-end-column="15" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#h3#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#h3#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#h3#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www2/templates/user_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-988">
+          <caret line="29" column="32" lean-forward="true" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www2/templates/user_single_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www2/static/my_jquery_functions.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www2/static/jquery-1.11.3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="33" lean-forward="true" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www2/static/bootstrap-3.3.7-dist/js/npm.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www2/templates/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="23" column="39" lean-forward="true" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+          <folding>
+            <element signature="e#754#761#1" expanded="true" />
+            <element signature="n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#form#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#p#1;n#div#0;n#div#4;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www2/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="69" selection-start-line="69" selection-end-line="79" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/teamplate.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/table.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-324" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/board2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/bootstrapTable_start.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="817">
+          <caret line="43" column="7" lean-forward="true" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www2/templates/user_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="80" selection-start-line="80" selection-end-line="80" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www2/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="136" selection-start-line="136" selection-end-line="144" selection-end-column="84" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#h3#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#li#8;n#ul#0;n#div#0;n#nav#0;n#div#0;n#header#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#h3#0;n#li#9;n#ul#0;n#div#0;n#nav#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#21713#21718#0" expanded="true" />
+            <element signature="e#24328#24334#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www2/bbs_system_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="124" selection-start-line="124" selection-end-line="133" selection-end-column="19" />
+          <folding>
+            <element signature="e#15#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www2/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="208">
+            <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www2/static/2019-07-02.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="71" column="23" lean-forward="true" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/1197644528/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="4562" column="6" selection-start-line="4562" selection-start-column="6" selection-end-line="4562" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www2/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="261" column="32" selection-start-line="261" selection-start-column="32" selection-end-line="261" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www2/templates/app01_filters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="14" lean-forward="true" selection-start-column="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www2/templates/articles-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="155" column="58" lean-forward="true" selection-start-line="155" selection-start-column="58" selection-end-line="155" selection-end-column="58" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
