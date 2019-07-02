@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+</head>
+<body>
+    <script type=text/javascript>
+      $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
+    <script type=text/javascript>
+      $(function(){
+        $('calculate').bind('click', function() {
+          alert('ssss');
+          alert($SCRIPT_ROOT);
+          $.getJSON($SCRIPT_ROOT + '/_add_numbers', {
+            a: $('input[name="a"]').val(),
+            b: $('input[name="b"]').val()
+          }, function(data) {
+            $("#result").text(data.result);
+          });
+          return false;
+        });
+      });
+    </script>
+    <h1>jQuery Example</h1>
+    <p><input type=text size=5 name=a> +
+        <input type=text size=5 name=b> =
+        <span id=result>?</span>
+    <p>
+        <a href='/_add_numbers' id='calculate'>calculate server side
+        </a>
+    </p>
+</body>
+</html>

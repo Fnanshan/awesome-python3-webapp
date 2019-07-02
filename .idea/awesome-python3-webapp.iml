@@ -5,6 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/bbs/db" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test/学习flask/快速入门" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/www" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/学习/学习flask/操作指南" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/src" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>

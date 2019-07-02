@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>insert user</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shiv 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="page-header">
+    <h1>insert user
+        <small></small>
+    </h1>
+</div>
+<form class="form-horizontal" role="form" action="/insert_user/" method="post">
+    <div class="form-group">
+        <label for="firstname" class="col-sm-2 control-label">id</label>
+        <div class="col-sm-10">
+            <input type="hidden" name="id" class="form-control" id="id" placeholder="please input id">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="firstname" class="col-sm-2 control-label">username</label>
+        <div class="col-sm-10">
+            <input type="text" name="username" class="form-control" id="firstname" placeholder="please input username">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lastname" class="col-sm-2 control-label">userpass</label>
+        <div class="col-sm-10">
+            <input type="password" name="userpass" class="form-control" id="lastname" placeholder="please input userpass">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">usertype</label>
+        <div class="col-sm-10">
+            <input type="text" name="usertype" class="form-control" id="usertype" placeholder="please input usertype">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">usermail</label>
+        <div class="col-sm-10">
+            <input type="text" name="usermail" class="form-control" id="usermail" placeholder="please input usermail">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">userhomepage</label>
+        <div class="col-sm-10">
+            <input type="text" name="userhomepage" class="form-control" id="userhomepage" placeholder="please input userhomepage">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">homepagename</label>
+        <div class="col-sm-10">
+            <input type="text" name="homepagename" class="form-control" id="homepagename" placeholder="please input homepagename">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">sex</label>
+        <div class="col-sm-10">
+            <select class="form-control" id="sex" name="sex">
+                <option value="">- please select sex -</option>
+                <option value="1">men</option>
+                <option value="0">women</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">comefrom</label>
+        <div class="col-sm-10">
+            <input type="text" name="comefrom" class="form-control" id="comefrom" placeholder="please input comefrom" value="{{ result[0][8] }}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">usersign</label>
+        <div class="col-sm-10">
+            <input type="text" name="usersign" class="form-control" id="usersign" placeholder="please input usersign" value="{{ result[0][9] }}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">redate</label>
+        <div class="col-sm-10">
+            <input type="hidden" name="redate" class="form-control" id="redate" placeholder="please input redate" value="{{ result[0][10] }}">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" class="btn btn-default"></input>
+            <input type="button" class="btn btn-default" onclick="window.location.href = '/'" value="return">
+        </div>
+    </div>
+</form>
+<!--    返回上一级页面-->
+<!--    <div class="col-sm-offset-2 col-sm-10">-->
+<!--        <input type="submit" class="btn btn-default" onclick="javascript :history.go(-1);" value="return">-->
+<!--    </div>-->
+
+<!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- 包括所有已编译的插件 -->
+<script src="E:\projects\GitProjects\awesome-python3-webapp\bootstrap-3.3.7-dist\js\bootstrap.min.js"></script>
+</script>
+</body>
+</html>

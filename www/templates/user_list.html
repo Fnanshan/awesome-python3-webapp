@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>user list</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shiv 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+<!--    我的js文件-->
+<!--    <script src="/static/my_jquery_functions.js"></script>-->
+
+<!--    jquery validata 表单验证插件-->
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+
+    <script>
+    $.validator.setDefaults({
+        submitHandler: function() {
+          alert("提交事件!");
+        }
+    });
+    $().ready(function() {
+        $("#commentForm").validate();
+    });
+</script>
+</head>
+<body>
+<div class="page-header">
+    <h1>user list
+        <small></small>
+    </h1>
+</div>
+<table class="table table-bordered" id="tab" name="tab">
+    <tr>
+        <th>id</th>
+        <th>username</th>
+        <th>userpass</th>
+        <th>usertype</th>
+        <th>usermail</th>
+        <th>userhomepage</th>
+        <th>homepagename</th>
+        <th>sex</th>
+        <th>comefrom</th>
+        <th>usersign</th>
+        <th>redate</th>
+        <th>opt</th>
+    </tr>
+    {% for i in result %}
+    <tr>
+        <td id="first">{{ i[0] }}</td>
+        <td>{{ i[1] }}</td>
+        <td>{{ i[2] }}</td>
+        <td>{{ i[3] }}</td>
+        <td>{{ i[4] }}</td>
+        <td>{{ i[5] }}</td>
+        <td>{{ i[6] }}</td>
+        <td>{{ i[7] }}</td>
+        <td>{{ i[8] }}</td>
+        <td>{{ i[9] }}</td>
+        <td>{{ i[10] }}</td>
+        <td>
+            <form action="/user_list_opt" method="post" class="form-horizontal" role="form">
+                <div id="mydiv" class="btn-group" role="group" aria-label="...">
+    <!--                <button type="button" class="btn btn-default" onclick="edit_user(this)" name="edit">edit</button>-->
+                    <button type="button" class="btn btn-default" id="edit" value="{{ i[0] }}" onclick="edit_user(this)">edit</button>
+                    <button type="button" class="btn btn-default" id="delete" value="{{ i[0] }}" onclick="delete_user(this)">delete</button>
+                    <button type="button" class="btn btn-default">is_active(no code)</button>
+                </div>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<input type="button" class="btn btn-default" onclick="window.location.href = '/'" value="return">
+
+<!--<form action="/getjson" method="">-->
+<!--    <button type="submit" value="sub">submit</button>-->
+<!--</form>-->
+
+
+<!--<form class="cmxform" id="commentForm" method="get" action="">-->
+<!--    <fieldset>-->
+<!--        <legend>输入您的名字，邮箱，URL，备注。</legend>-->
+<!--        <p>-->
+<!--            <label for="cname">Name (必需, 最小两个字母)</label>-->
+<!--            <input id="cname" name="name" minlength="2" type="text" required>-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            <label for="cemail">E-Mail (必需)</label>-->
+<!--            <input id="cemail" type="email" name="email" required>-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            <label for="curl">URL (可选)</label>-->
+<!--            <input id="curl" type="url" name="url">-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            <label for="ccomment">备注 (必需)</label>-->
+<!--            <textarea id="ccomment" name="comment" required></textarea>-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            <input class="submit" type="submit" value="Submit">-->
+<!--        </p>-->
+<!--    </fieldset>-->
+<!--</form>-->
+
+<!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+<script src="https://code.jquery.com/jquery.js"></script>
+
+<script type=text/javascript src="{{
+  url_for('static', filename='jquery-1.11.3.min.js') }}"></script>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+<!--<script>-->
+<!--$(document).ready(function(){-->
+<!--  $("button").click(function(){-->
+<!--    //alert($("button").val());-->
+<!--    alert( {{ result[0][0] }});-->
+<!--  });-->
+<!--});-->
+<!--</script>-->
+
+<script type="text/javascript">
+    function  edit_user(obj){
+        var user_id = $(obj).val();
+        $.ajax({
+            url: '/user_list/edit/' + user_id,
+            type: "POST",
+            data: user_id,
+            success: function(data){            // success(result,status,xhr): 当请求成功时运行的函数-->
+                // alert(data)
+                return window.location.href="/user_list/edit/" + data
+            }
+        });
+    }
+
+    function  delete_user(obj){
+        var user_id = $(obj).val();
+        var r=confirm("please confirm delete user");
+        if (r==true){
+            $.post('/user_list/delete/' + user_id, function(data, status){
+                //alert('data:' + data + ',status:' + status);
+                window.location.reload();
+            //window.location.href="/user_list/delete/" + data;
+            });
+        };
+    }
+</script>
+
+<!--jquery ajax()       执行ajax（异步HTTP）请求-->
+
+<!--<script type="text/javascript">-->
+<!--    var mydata="test";-->
+<!--    $.ajax({-->
+<!--               cache: "flase",                     // cache: 表示浏览器是否缓存被请求页面。默认是 true-->
+<!--        url: "",    // url: 发送请求的 URL。默认是当前页面-->
+<!--        type: "POST",                       // type: 请求的类型（GET 或 POST）-->
+<!--        data: JSON.stringify({mydata}),     // data: 发送到server的数据-->
+<!--        contentType: "application/json",    // contentType: 发送数据到服务器时所使用的内容类型。默认是："application/x-www-form-urlencoded"。-->
+<!--        dataType: "json",                   // dataType: 服务器响应的数据类型-->
+<!--        success: function(data){            // success(result,status,xhr): 当请求成功时运行的函数-->
+<!--            alert(data);-->
+<!--        }-->
+
+<!--    });-->
+<!--</script>-->
+
+<!--ajax从server获取data   $.get(URL,callback);-->
+
+<!--<script type="text/javascript">-->
+<!--    $.post('/getjson', function(data, status){-->
+<!--        alert("data :" + data + ",status :" + status);-->
+<!--    });-->
+<!--</script>-->
+
+<!--ajax向服务器上传data      $.post(URL,data,callback);-->
+
+<!--<script type="text/javascript">-->
+<!--$.post('/getjson',-->
+<!--        {-->
+<!--            name:"菜鸟教程",-->
+<!--            url:"http://www.runoob.com"-->
+<!--        },-->
+<!--        function(data,status){-->
+<!--            alert("数据: \n" + data + "\n状态: " + status);-->
+<!--        });-->
+<!--</script>-->
+
+</body>
+
+</html>

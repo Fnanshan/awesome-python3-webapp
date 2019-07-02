@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>Please Sign In</title>
+</head>
+<body>
+{% if message %}
+<p style="color:red">{{ message }}</p>
+{% endif %}
+
+{% if error %}
+<p style="color:blue">{{ error }}</p>
+{% endif %}
+
+<h3>欢迎:{{ username }}</h3>
+<form action="" method="POST">
+    用户名:<input type="text" name="username" placeholder="请输入你的名字">
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>

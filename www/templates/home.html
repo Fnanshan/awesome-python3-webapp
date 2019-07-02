@@ -18,7 +18,7 @@
     <div class="page-header">
         <h1><a href="/">Home</a>
             {% if username %}
-            <small>Welcome, {{ username }} !</small>
+            <small>Welcome, {{ username }} {{ user_info }} !</small>
             {% endif %}
         </h1>
     </div>
@@ -43,10 +43,10 @@
     </div>
     <h3>user opt</h3>
     <div class="btn-group btn-group-lg">
-        <button type="button" class="btn btn-default" onclick="window.location.href = '/insert_user'">insert</button>
-        <button type="button" class="btn btn-default">delete</button>
-        <button type="submit" class="btn btn-default" onclick="window.location.href = '/update_user'">update</button>
-        <button type="button" class="btn btn-default">query</button>
+        <button type="button" class="btn btn-default" onclick="insert_user()">insert</button>
+        <button type="button" class="btn btn-default">delete(cd /query/)</button>
+        <button type="submit" class="btn btn-default" onclick="update_self()">update (no admin)</button>
+        <button type="button" class="btn btn-default" onclick="query()">query</button>
     </div>
     <h3>board opt</h3>
     <div class="btn-group btn-group-lg">
@@ -62,5 +62,52 @@
         <button type="button" class="btn btn-default">update</button>
         <button type="button" class="btn btn-default">query</button>
     </div>
+
+    <script type=text/javascript src="{{
+        url_for('static', filename='jquery-1.11.3.min.js') }}">
+    </script>
+    <script type="text/javascript">
+        function insert_user(){
+            var session_id = "{{ session['id'] }}".toString();
+            if( session_id == ""){              //如果不是登录状态，不能进行insert_user操作
+                alert('请先登录');
+                return false;
+            }
+            else{                               //如果是登录状态
+                var user_id = session_id;      //因为是修改自己，所以获取session中的id
+                window.location.href = '/register'
+            }
+        }
+
+        function update_self(){
+            var session_id = "{{ session['id'] }}".toString();
+            if( session_id == ""){              //如果不是登录状态，不能进行insert_user操作
+                alert('请先登录');
+                return false;
+            }
+            else{                               //如果是登录状态
+                var user_id = session_id;      //因为是修改自己，所以获取session中的id
+                //第一种方式成功，来来去去就是获取user_id，可以获取user_id，但是没有跳转
+                //$.post('/update_self/edit/' + user_id, user_id, function(data, status){     //执行post操作，向server上传user_id
+                //    //alert('data :' + data + ',status :' + status);
+                 //   return window.location.href="/update_self/edit/" + data
+                //});
+                //尝试第二种方式，直接跳转到user_id的界面，不用管什么get/post，因为flask中的代码判断的是get
+                window.location.href="/update_self/edit/" + user_id
+            }
+        }
+
+        function query(){
+            var session_id = "{{ session['id'] }}".toString();
+            if( session_id == ""){              //如果不是登录状态，不能进行insert_user操作
+                alert('请先登录');
+                return false;
+            }
+            else{                               //如果是登录状态
+                var user_id = session_id;      //因为是修改自己，所以获取session中的id
+                window.location.href = '/user_list'
+            }
+        }
+    </script>
 </body>
 </html>

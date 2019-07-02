@@ -15,7 +15,7 @@ def insert(sql):
         # 插入一行记录，注意MySQL的占位符是%s:
         cursor.execute(sql)
         status = cursor.rowcount
-        print(status, ' 行受影响！')
+        print('insert opt :', status, ' 行受影响！')
         # 提交事务:
         conn.commit()
         return status
@@ -45,7 +45,7 @@ def update(sql):
         # 插入一行记录，注意MySQL的占位符是%s:
         cursor.execute(sql)
         status = cursor.rowcount
-        print(status, ' 行受影响！')
+        print('update opt :', status, ' 行受影响！')
         # 提交事务:
         conn.commit()
         return status
