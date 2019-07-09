@@ -1,5 +1,5 @@
 # 项目简介
-* 本项目是基于flask开发的
+* 本项目是基于flask开发的BBS论坛
 * 作者：[Fnanshan](https://github.com/Fnanshan)
 * 开发环境：
     * Python 3.7.3
