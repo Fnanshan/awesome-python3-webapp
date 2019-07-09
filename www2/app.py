@@ -1,3 +1,4 @@
+# coding=utf-8
 from flask_bootstrap import Bootstrap
 from flask import Flask, request, render_template, url_for, session, escape, redirect, jsonify
 import www2.bbs_system_functions as system
@@ -30,10 +31,10 @@ def home():
         user.id = session['id']
         # id = user.query_all_by_username()[0][0]
         result = user.query_all_by_username()
-        # print(' home() :', result)
-        if result[0][0] in range(5):     # session.username是管理员
-            return render_template('index.html', username=escape(session['username']), bbs_result=bbs_latest, order_by_click=bbs_clicking_ranking_result)
+        print(' bbs_user :', result)
+        # if result[0][3] == 1:     # session.username是管理员
         return render_template('index.html', username=escape(session['username']), bbs_result=bbs_latest, order_by_click=bbs_clicking_ranking_result)
+        # return render_template('index.html', username=escape(session['username']), bbs_result=bbs_latest, order_by_click=bbs_clicking_ranking_result)
 
     return render_template('index.html', bbs_result=bbs_latest, order_by_click=bbs_clicking_ranking_result)
 
@@ -57,7 +58,8 @@ def signin():
             result = user.query_all_by_username()
             # 登录成功则存入会话
             session['id'] = result[0][0]
-            session['username'] = request.form['username']
+            session['username'] = result[0][1]
+            session['usertype'] = result[0][3]
             # return render_template('home.html', message='login success', username=username, info='')
             return redirect(url_for('home'))
     return render_template('login.html')
@@ -233,6 +235,15 @@ def update_self_edit(result_id):
     return redirect(url_for('update_user', user_id=result_id))
 
 
+@app.route('/query_user/<user_id>', methods=['GET', 'POST'])
+def query_user(user_id):
+    if request.method == 'POST':
+        return ''
+    user_id = request.args
+    print(user_id)
+    return ''
+
+
 @app.route('/getjson', methods=['GET', 'POST'])
 def getjson():
     # a = request.json
@@ -256,10 +267,85 @@ def getjson():
 def bbs_list():
         board = system.Board()
         bbs = system.Bbs()
-        boardid_dict = board.get_board_id_and_name()
-        order_by_click = bbs.clicking_ranking()
-        value = "123456789101112131415"
-        return render_template('articles-list.html', order_by_click=order_by_click, boardid_dict=boardid_dict, value=value)
+        boardid_dict = board.query_board()      # 查询所有版块
+        order_by_click = bbs.clicking_ranking() # 根据帖子点击率对帖子进行排序
+        all_bbs = bbs.query_all_bbs()           # 查询所有帖子
+        bbsid_reply = {}                        # 字典：{ 帖子id: 帖子回复数 }
+        for i in all_bbs:
+            # print('bbsid :', i[0])
+            bbs.bbsid = i[0]
+            result = bbs.bbs_sum_reply()        # 查询帖子回复数
+            sum = 0
+            for j in result:
+                sum += j[0]
+            # print('bbsid :', i[0], ' sum_reply :', sum)
+            bbsid_reply[i[0]] = sum             # 将{ 帖子id: 帖子回复数 } 放入字典
+        # print('bbsid_reply dict :', bbsid_reply)
+        # print('order_by_click :', order_by_click,
+        #       '\n boardid_dict :', boardid_dict,
+        #       '\n bbsid_reply :', bbsid_reply)
+        return render_template('articles-list.html', order_by_click=order_by_click, boardid_dict=boardid_dict, bbsid_reply=bbsid_reply)
+
+
+@app.route('/single/boardid=<boardid>&usertype=<usertype>&bbsid=<bbsid>', methods=['GET', 'POST'])
+def single(boardid, usertype, bbsid):
+    board = system.Board()
+    bbs = system.Bbs()
+    print('boardid :', boardid,
+          '\n usertype :', usertype,
+          '\n bbsid :', bbsid)
+    boardid_dict = board.query_board()      # 查询所有版块
+    bbs.bbsid = bbsid
+    bbs_result = bbs.query_by_bbsid()           # 根据bbsid查询单个帖子
+    all_bbs = bbs.query_all_bbs()           # 查询所有帖子
+    bbsid_reply = {}                        # 字典：{ 帖子id: 帖子回复数 }
+    for i in all_bbs:
+        # print('bbsid :', i[0])
+        bbs.bbsid = i[0]
+        result = bbs.bbs_sum_reply()        # 查询帖子回复数
+        sum = 0
+        for j in result:
+            sum += j[0]
+        bbsid_reply[i[0]] = sum             # 将{ 帖子id: 帖子回复数 } 放入字典
+    # print(' bbs_result :\n', bbs_result)
+    return render_template('single.html', result=bbs_result, boardid_dict=boardid_dict, bbsid_reply=bbsid_reply)
+
+
+@app.route('/board_list/', methods=['GET', 'POST'])
+def board_list():
+    if request.method == 'POST':
+        return ''
+    board = system.Board()
+    board_list = board.query_board()
+    return render_template('board_list.html', result=board_list)
+
+
+@app.route('/insert_board/', methods=['GET', 'POST'])
+def insert_board():
+    if request.method == 'POST':
+        print('insert board post opt')
+        board = system.Board()
+        board.boardname = request.form['boardname']
+        board.boardtopics = request.form['boardtopics']
+        board.boardmanager = request.form['boardmanager2']
+        board.boardintroduce = request.form['boardintroduce']
+        status = board.insert_board()
+        if status:
+            board_list = board.query_board()
+            return render_template('board_list.html', result=board_list)
+        return 'insert error'
+    user = system.User()
+    user_list = user.query_all_user()
+    len1 = len(user_list)
+    for i in user_list:
+        print(i)
+    # admin_list = []
+    # for i in user_list:
+    #     if i[3] == 0:
+    #         admin_list.append(i)
+    # print(admin_list)
+    print('insert board get opt')
+    return render_template('board_detail.html', user_list=user_list, len1=len1)
 
 
 @app.route('/query_board2', methods=['GET', 'POST'])
@@ -297,6 +383,15 @@ def test():
     password = request.form.get('password')
     print(username,password) #456 789
     return '这是测试页面'
+
+
+app.route('/search_form/', methods=['GET', 'POST'])
+def search_form():
+    if request.method == ['POST']:
+        return 'post'
+    form_data = request.args['s']
+    print('form_data :', form_data)
+    return 'get'
 
 
 if __name__ == '__main__':

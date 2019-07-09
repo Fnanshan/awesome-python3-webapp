@@ -89,7 +89,9 @@ class Board(object):
 
     def insert_board(self):
         # 添加版块时，标题与内容不能为空，否则弹出错误提示。
-        sql = 'insert into board values (' + str(self.__boardid) + ', \'' + self.__boardname + '\', ' + str(self.__boardtopics) + ', \'' + self.__boardmanager + '\', \'' + self.__boardintroduce + '\');'
+        # sql = 'insert into board （boardname, boardtopics, boardmanager, boardintroduce) values (\'' + self.__boardname + '\', ' + str(self.__boardtopics) + ', \'' + self.__boardmanager + '\', \'' + self.__boardintroduce + '\');'
+        sql = 'insert into board (boardname, boardtopics, boardmanager, boardintroduce) VALUES \
+( \'' + self.__boardname + '\', ' + str(self.__boardtopics) + ', \'' + self.__boardmanager + '\', \'' + self.__boardintroduce + '\')'
         status = connDB.insert(sql)
         return status
 
@@ -120,18 +122,6 @@ class Board(object):
         result = connDB.query(sql)
         print(result)
         return result
-
-
-board = Board()
-request = 1
-# result = board.get_boardid_dict()
-# for i in result:
-#     if i[0] == request:
-#         print(i[1])
-result = board.get_board_id_and_name()
-for i in result:
-    if i[0] == request:
-        print(i[1])
 
 
 class User(object):
@@ -371,10 +361,26 @@ class Bbs(object):
         sql = 'update bbs_bbs set boardid=' + str(self.__boardid) + ', parentid=' + str(self.__parentid) + ', child=' + str(self.__child) + ', username=\'' + str(self.__username) + '\', expression=\'' + self.__expression + '\', bbstitle=\'' + self.__bbstitle + '\', bbscontent=\'' + self.__bbscontent + '\', dateandtime=\'' + str(self.__dateandtime) + '\', bbsclick=' + str(self.bbsclick) + ', bbshot=\'' + self.bbshot + '\' where bbsid=' + str(self.__bbsid) + ';'
         status = connDB.update(sql)
         return status
-        # print(sql)
 
     def query_all_bbs(self):
         sql = 'select * from bbs_bbs where bbstitle is not null; '
+        result = connDB.query(sql)
+        return result
+
+    def query_by_bbsid(self):
+        sql = 'select * from bbs_bbs where bbsid = ' + str(self.__bbsid) + ';'
+        result = connDB.query(sql)
+        return result
+
+    # 计算帖子的总回复数，直接回复、间接回复
+    def bbs_sum_reply(self):
+        sql = '	select count(1) from bbs_bbs where parentid in ( \
+                    select bbsid from bbs_bbs where parentid in ( \
+                        select bbsid from bbs_bbs where bbsid = ' + str(self.__bbsid) + ') \
+                ) \
+                UNION  ALL \
+                    select count(1) from bbs_bbs where parentid in ( \
+                        select bbsid from bbs_bbs where bbsid = ' + str(self.__bbsid) + ')'
         result = connDB.query(sql)
         return result
 
@@ -391,24 +397,3 @@ class Bbs(object):
                 ORDER BY dateandtime DESC, bbsid DESC'
         result = connDB.query(sql)
         return result
-
-bbs = Bbs()
-# bbs.bbsid = 1
-# bbs.boardid = 1
-# bbs.parentid = 0
-# bbs.child = 0
-# bbs.username = 'admin'
-# bbs.expression = '@qq.com'
-# bbs.bbstitle = '【贴吧辩论赛】高温天气，宿舍该不该开空调？'
-# bbs.bbscontent = ''
-# bbs.dateandtime = '2000-01-01 00:00:00'
-# bbs.bbsclick = 0
-# bbs.bbshot = ''
-
-# result = bbs.clicking_ranking()
-# for i in result:
-#     print(i, '\n')
-
-# result = bbs.order_by_dateandtime()
-# for i in result:
-#     print(i, '\n')

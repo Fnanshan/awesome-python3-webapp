@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>user list</title>
+    <title>board list</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引入 Bootstrap -->
@@ -23,100 +23,38 @@
 </head>
 <body>
 <div class="page-header">
-    <h1>user list
+    <h1>board list
         <small></small>
     </h1>
 </div>
 <div class="btn-group" role="group" aria-label="...">
-    <button type="button" class="btn btn-primary"  onclick="insert_user()">insert</button>
+    <button type="button" class="btn btn-primary"  onclick="insert_board()">insert</button>
 </div>
 <p/>
 
 <table class="table table-striped" id="tab" name="tab">
     <tr>
-        <th>id</th>
-        <th>username</th>
-        <th>userpass</th>
-        <th>usertype</th>
-        <th>usermail</th>
-        <th>userhomepage</th>
-        <th>homepagename</th>
-        <th>sex</th>
-        <th>comefrom</th>
-        <th>usersign</th>
-        <th>redate</th>
+        <th>boardid</th>
+        <th>boardname</th>
+        <th>boardtopics</th>
+        <th>boardmanager</th>
+        <th>boardintroduce</th>
         <th>opt</th>
     </tr>
     {% for i in result %}
     <tr>
-        <td id="first">
-            {% if i[0] != None %}
-                {{ i[0] }}
-            {% endif %}
-        </td>
+        <td id="first">{{ i[0] }}</td>
+        <td>{{ i[1] }}</td>
+        <td>{{ i[2] }}</td>
+        <td>{{ i[3] }}</td>
+        <td>{{ i[4] }}</td>
         <td>
-            {% if i[1] != None %}
-            {{ i[1] }}
-            {% endif %}
-        </td>
-        <td>
-            {% if i[2] != None %}
-            {{ i[2] }}
-            {% endif %}
-        </td>
-        <td>
-            {% if i[3] != None %}
-            {{ i[3] }}
-            {% endif %}
-        </td>
-        <td>
-            {% if i[4] != None %}
-            {{ i[4] }}
-            {% endif %}
-        </td>
-        <td>
-            {% if i[5] != None %}
-            {{ i[5] }}
-            {% endif %}
-        </td>
-        <td>
-            {% if i[6] != None %}
-            {{ i[6] }}
-            {% endif %}
-        </td>
-        <td>
-            {% if i[7] != None %}
-            {{ i[7] }}
-            {% endif %}
-        </td>
-        <td>
-            {% if i[8] != None %}
-            {{ i[8] }}
-            {% endif %}
-        </td>
-        <td>
-            {% if i[9] != None %}
-            {{ i[9] }}
-            {% endif %}
-        </td>
-        <td>
-            {% if i[10] != None %}
-            {{ i[10] }}
-            {% endif %}
-        </td>
-        <td>
-            <form action="/user_list_opt" method="post" class="form-horizontal" role="form">
+            <form action="/board_list_opt" method="post" class="form-horizontal" role="form">
                 <div id="mydiv" class="btn-group" role="group" aria-label="...">
     <!--                <button type="button" class="btn btn-default" onclick="edit_user(this)" name="edit">edit</button>-->
-                    {% if i[0] in range(5) %}
-                    <button type="button" class="btn btn-default" id="edit" value="{{ i[0] }}" onclick="edit_user(this)" disabled="disabled">edit</button>
-                    <button type="button" class="btn btn-default" id="delete" value="{{ i[0] }}" onclick="delete_user(this)" disabled="disabled">delete</button>
-                    <button type="button" class="btn btn-default" disabled="disabled">is_active(no code)</button>
-                    {% else %}
-                    <button type="button" class="btn btn-default" id="edit" value="{{ i[0] }}" onclick="edit_user(this)">edit</button>
-                    <button type="button" class="btn btn-default" id="delete" value="{{ i[0] }}" onclick="delete_user(this)">delete</button>
+                    <button type="button" class="btn btn-default" id="edit" value="{{ i[0] }}" onclick="edit_board(this)">edit</button>
+                    <button type="button" class="btn btn-default" id="delete" value="{{ i[0] }}" onclick="delete_board(this)">delete</button>
                     <button type="button" class="btn btn-default">is_active(no code)</button>
-                    {% endif %}
 
                 </div>
             </form>
@@ -125,11 +63,6 @@
     {% endfor %}
 </table>
 <input type="button" class="btn btn-default" onclick="window.location.href = '/'" value="return">
-
-<!--<form action="/getjson" method="">-->
-<!--    <button type="submit" value="sub">submit</button>-->
-<!--</form>-->
-
 
 <!--<form class="cmxform" id="commentForm" method="get" action="">-->
 <!--    <fieldset>-->
@@ -165,7 +98,7 @@
 
 <script type="text/javascript">
 
-    function insert_user(){
+    function insert_board(){
         var session_id = "{{ session['id'] }}".toString();
         if( session_id == ""){              //如果不是登录状态，不能进行insert_user操作
             alert('请先登录');
@@ -173,31 +106,29 @@
         }
         else{                               //如果是登录状态
             var user_id = session_id;      //因为是修改自己，所以获取session中的id
-            window.location.href = '/register'
+            window.location.href = '/insert_board/'
         }
     }
 
-    function  edit_user(obj){
-        var user_id = $(obj).val();
+    function  edit_board(obj){
+        var board_id = $(obj).val();
         $.ajax({
-            url: '/user_list/edit/' + user_id,
+            url: '/board_list/edit/' + board_id,
             type: "POST",
-            data: user_id,
+            data: board_id,
             success: function(data){            // success(result,status,xhr): 当请求成功时运行的函数-->
                 // alert(data)
-                return window.location.href="/user_list/edit/" + data
+                return window.location.href="/board_list/edit/" + data
             }
         });
     }
 
-    function  delete_user(obj){             //这是admin操作，admin只能删除非自己的用户，不能删除自己，如果删除自己请注销用户。
-        var user_id = $(obj).val();
-        var r=confirm("please confirm delete user");
+    function  delete_board(obj){
+        var board_id = $(obj).val();
+        var r=confirm("please confirm delete board");
         if (r==true){
-            $.post('/user_list/delete/' + user_id, function(data, status){
-                //alert('data:' + data + ',status:' + status);
+            $.post('/board_list/delete/' + board_id, function(data, status){
                 window.location.reload();
-            //window.location.href="/user_list/delete/" + data;
             });
         };
     }

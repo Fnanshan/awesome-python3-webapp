@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>please insert board</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shiv 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<button type="button"  class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="false">&times;</span>
+</button>
+<p hidden="hidden">This is a paragraph.</p>
+<form action="/insert_board/" method="post" class="form-horizontal" role="form" id="register_form">
+    <!--    <form class="form-horizontal" role="form" id="register_form">-->
+    <legend>please insert board</legend>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">boardname</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="boardname" name="boardname" placeholder="please input boardname">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">boardtopics</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="boardtopics" name="boardtopics" value="0" placeholder="please input boardtopics">
+            <p/>
+        </div>
+    </div>
+
+    <!--        user较少的情况下，用下拉列表实现 选择板块管理员；-->
+    <!--        user较多的情况下，用输入框输入 userid / username 实现 选择板块管理员-->
+    <div class="form-group">
+        <label class="col-sm-2 control-label">boardmanager1</label>
+        <div class="col-sm-10">
+            <select class="form-control">
+                {% for i in user_list %}
+                    {% if i[3] == 0 %}
+                        <option>admin : {{ i[1] }}</option>
+                    {% else %}
+                        <option>{{ i[1] }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">boardmanager2</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="boardmanager2" name="boardmanager2" placeholder="please input boardmanager" onkeyup="validate(this)">
+            <span id="tishi"></span>
+            <p/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">boardintroduce</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" rows="3" id="boardintroduce" name="boardintroduce" placeholder="please input boardintroduce"></textarea>
+            <p/>
+        </div>
+    </div>
+    <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">submit</button>
+        <input type="button" class="btn btn-default" onclick="window.location.href = '/'" value="return">
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+            <p/>
+            {% if message %}
+            <p style="color:red">{{ message }}</p>
+            {% endif %}
+        </div>
+    </div>
+</form>
+
+<script>
+        function validate(obj) {
+            var obj = $(obj).val()
+            //alert({{user_list[0][0]}});
+            //alert({{user_list}}.length);
+            //alert({{len1}});
+            {% for i in user_list %}
+            alert({{i[0]}});
+            {% endfor %}
+            }
+        }
+</script>
+
+<!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- 包括所有已编译的插件 -->
+<script src="\static\bootstrap-3.3.7-dist\js\bootstrap.min.js"></script>
+</script>
+
+</body>
+</html>
